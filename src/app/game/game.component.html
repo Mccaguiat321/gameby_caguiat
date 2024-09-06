@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngFor="let box of boxes; let i = index" 
+         class="box" 
+         [ngClass]="{ 'correct': box.number !== null, 'incorrect': !canClickBoxes && box.number === null }"
+         (click)="checkNumber(i + 1)">
+      {{ box.number }}
+    </div>
+  </div>
+  <div class="controls">
+    <button (click)="startGame('easy')">Easy</button>
+    <button (click)="startGame('hard')">Hard</button>
+    <button (click)="startGame('extreme')">Extreme</button>
+  </div>
+  <p id="message">{{ message }}</p>
+  <p id="countdown">Time remaining: {{ countdown }} seconds</p>
+  
